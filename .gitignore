@@ -9,3 +9,12 @@ $RECYCLE.BIN/
 
 # CodeWhale 运行时缓存
 *.log
+
+# 打包输出
+dist/
+packager/bin/
+packager/obj/
+packager/dist-single/
+
+# NuGet 包缓存
+*.nupkg

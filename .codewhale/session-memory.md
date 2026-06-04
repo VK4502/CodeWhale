@@ -41,3 +41,12 @@
 更新 `instructions.md` 结束指令：每次会话结束时自动 git add + commit + push `.codewhale/session-memory.md` 到远程仓库。
 - 轻量同步：只推送记忆文件，不打扰代码工作区
 - push 失败时静默跳过，不阻塞结束
+
+## 2026-06-05（v8 — HTML 游戏打包为 exe）
+
+创建 `packager/` 项目：基于 .NET 8 + WebView2 的 HTML 游戏打包器。
+- `GamePackager.csproj` + `Program.cs`，HTML 内嵌为资源编译进 exe
+- 用 `snake-nob-m.html` 打包生成 `贪吃蛇.exe`（147MB，自包含单文件，零依赖）
+- `dist/` 目录存放打包成品
+- `README.md` 说明使用方式
+- 更新 `.gitignore` 忽略构建输出和打包成品
