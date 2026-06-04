@@ -1,0 +1,11 @@
+# 忽略嵌套的 git 仓库（repos 有自己独立的 git）
+repos/.git/
+repos/.gitignore
+
+# Windows 系统文件
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# CodeWhale 运行时缓存
+*.log
