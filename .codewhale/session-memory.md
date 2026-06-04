@@ -46,3 +46,27 @@
 
 ### 下一步
 正常在项目工作中使用，记忆会自动累积。
+
+---
+
+## 2026-06-04（第四次会话 —— 完全体上线）
+
+### 目标
+将整个 CodeWhale 工作区推送到 GitHub，实现跨设备完整使用。
+
+### 完成的工作
+- 创建新仓库 `github.com/VK4502/CodeWhale`
+- 在 `D:\codewhale` 初始化 git 仓库，跟踪全部内容
+- 设置 `.gitignore` 忽略 `repos/.git`
+- 提交并推送：`.codewhale/`、`games/`、`repos/`、`tool/`、`whale.ico`、`小蓝鲸写代码.lnk`
+- 在 `repos/` 下创建 `BlueMind/` 目录作为记忆云端同步副本
+- 验证了通过 yolo 任务（`allow_shell: true` + `auto_approve: true`）可自动执行 git 操作
+- 配置了 git 代理 `http://127.0.0.1:7897`
+
+### 关键决策
+- 仓库名：`CodeWhale`
+- 同步机制：本地 `.codewhale/` → git 直接跟踪，`BlueMind/` → devFH 仓库同步副本
+- 未来记忆更新后，通过 yolo 任务自动 commit + push
+
+### 下一步
+新设备上 clone `CodeWhale` 仓库即可完整使用。
