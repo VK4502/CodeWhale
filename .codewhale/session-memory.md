@@ -25,3 +25,11 @@
 - 精简了 session-memory.md 为 20 行精简版
 - 创建 `role-card.html` 留作日后修改角色设定用
 - 删除了 instructions.md 中的角色模式章节
+
+## 2026-06-05（v6 — 便携式启动 & 图标修复）
+
+解决跨设备记忆读取问题：决定保持 Portable 结构（exe 与 .codewhale/ 同级），移除 tool/ 依赖。
+- 创建 `_create_shortcut.vbs`，全 ASCII 编码 + ChrW() 生成中文快捷方式名，消除编码兼容问题
+- `.bat` 方案因 UTF-8/GBK 编码冲突被否决
+- 保留 `小蓝鲸写代码.bat`（`%~dp0` 相对路径，无图标）
+- 新设备部署流程：拷贝整个目录 → 双击 `_create_shortcut.vbs` 生成带 whale.ico 的快捷方式
