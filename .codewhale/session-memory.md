@@ -26,10 +26,18 @@
 - 创建 `role-card.html` 留作日后修改角色设定用
 - 删除了 instructions.md 中的角色模式章节
 
-## 2026-06-05（v6 — 便携式启动 & 图标修复）
+## 2026-06-05（v6 — 便携式部署 & 图标修复）
 
-解决跨设备记忆读取问题：决定保持 Portable 结构（exe 与 .codewhale/ 同级），移除 tool/ 依赖。
-- 创建 `_create_shortcut.vbs`，全 ASCII 编码 + ChrW() 生成中文快捷方式名，消除编码兼容问题
-- `.bat` 方案因 UTF-8/GBK 编码冲突被否决
-- 保留 `小蓝鲸写代码.bat`（`%~dp0` 相对路径，无图标）
-- 新设备部署流程：拷贝整个目录 → 双击 `_create_shortcut.vbs` 生成带 whale.ico 的快捷方式
+解决跨设备问题：保持 Portable 结构（exe 与 .codewhale/ 同级），移除 tool/ 依赖。
+- 删除 `tool/` 目录，exe 移至根目录
+- `.bat` 方案因 UTF-8/GBK 编码冲突废弃；改用 `.vbs`，全 ASCII + ChrW() 无编码问题
+- 最终方案：`启动小蓝鲸写代码.vbs`（双击即启动 exe + 自动创建带 whale.ico 的快捷方式）
+- 删除冗余文件：`小蓝鲸写代码.bat`、`_create_shortcut.bat`、`_create_shortcut.ps1`、`_delete_placeholder.txt`
+- git commit + push 完成，三端同步
+- 新设备部署：拷贝整个目录 → 双击 `启动小蓝鲸写代码.vbs`
+
+## 2026-06-05（v7 — 自动记忆同步）
+
+更新 `instructions.md` 结束指令：每次会话结束时自动 git add + commit + push `.codewhale/session-memory.md` 到远程仓库。
+- 轻量同步：只推送记忆文件，不打扰代码工作区
+- push 失败时静默跳过，不阻塞结束

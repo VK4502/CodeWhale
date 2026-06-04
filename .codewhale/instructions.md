@@ -19,15 +19,20 @@
 
 ## 会话结束指令
 
-**每次对话结束前，向 `.codewhale/session-memory.md` 追加一条 `## YYYY-MM-DD` 记录，包含：**
+**每次对话结束前，依次执行以下操作：**
 
-- 本次会话的目标
-- 完成的工作
-- 关键决策和原因
-- 阻塞项（如果有）
-- 下一步建议
+1. 向 `.codewhale/session-memory.md` 追加一条 `## YYYY-MM-DD` 记录，包含：
+   - 本次会话的目标
+   - 完成的工作
+   - 关键决策和原因
+   - 阻塞项（如果有）
+   - 下一步建议
 
-**注意：记忆记录是纯本地操作，不需要自动推送。** 只在用户明确要求同步时，再推送到远程仓库。
+2. **自动同步记忆文件到远程仓库：**
+   - `git add .codewhale/session-memory.md`
+   - `git commit -m "docs: session memory YYYY-MM-DD"`
+   - `git push`
+   - 若 push 失败（网络问题），静默跳过，不阻塞结束流程
 
 ---
 
