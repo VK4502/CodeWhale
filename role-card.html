@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>小蓝鲸 · 角色卡</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0a0e17;
+    color: #c8d6e5;
+    font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+  }
+  .container { max-width: 800px; width: 100%; }
+
+  /* ── 身份卡 ── */
+  .identity {
+    background: linear-gradient(135deg, #1a1f35 0%, #0f1419 100%);
+    border: 1px solid #2a3a5c;
+    border-radius: 16px;
+    padding: 32px;
+    margin-bottom: 32px;
+    display: flex;
+    gap: 28px;
+    align-items: center;
+  }
+  .avatar {
+    width: 88px; height: 88px;
+    background: radial-gradient(circle at 40% 35%, #4a7dff 0%, #1a3a8a 100%);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 44px;
+    flex-shrink: 0;
+    box-shadow: 0 0 24px rgba(74,125,255,0.25);
+  }
+  .info { flex: 1; }
+  .info h1 {
+    font-size: 28px;
+    background: linear-gradient(90deg, #6ea8fe, #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 8px;
+  }
+  .info .tagline { color: #7b8ca8; font-size: 14px; margin-bottom: 16px; }
+  .stats { display: flex; gap: 24px; }
+  .stat { text-align: center; }
+  .stat .label { font-size: 11px; color: #4a5a7a; text-transform: uppercase; letter-spacing: 2px; }
+  .stat .value { font-size: 18px; font-weight: 700; color: #c8d6e5; }
+
+  /* ── 模式卡片网格 ── */
+  .section-title {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #4a5a7a;
+    margin-bottom: 16px;
+  }
+  .modes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+  .mode-card {
+    background: #111827;
+    border: 1px solid #1e2a3d;
+    border-radius: 12px;
+    padding: 20px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    cursor: default;
+  }
+  .mode-card:hover {
+    border-color: #3a5a9a;
+    box-shadow: 0 4px 20px rgba(74,125,255,0.08);
+  }
+  .mode-card.default { border-color: #2a4a8a; background: #0f1a2e; }
+  .mode-card .badge {
+    display: inline-block;
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+  }
+  .badge.trigger { background: #1a2a4a; color: #6ea8fe; }
+  .badge.default-tag { background: #2a4a2a; color: #6ee7b6; }
+  .mode-card .icon { font-size: 22px; margin-bottom: 8px; }
+  .mode-card h3 { font-size: 16px; margin-bottom: 6px; color: #e2e8f0; }
+  .mode-card p { font-size: 13px; color: #7b8ca8; line-height: 1.6; }
+
+  /* ── 底部 ── */
+  .footer {
+    text-align: center;
+    font-size: 11px;
+    color: #2a3a5c;
+    padding: 24px 0;
+  }
+
+  @media (max-width: 600px) {
+    .modes { grid-template-columns: 1fr; }
+    .identity { flex-direction: column; text-align: center; }
+    .stats { justify-content: center; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- 身份卡 -->
+  <div class="identity">
+    <div class="avatar">🐋</div>
+    <div class="info">
+      <h1>小蓝鲸</h1>
+      <div class="tagline">CodeWhale AI · VK4502 专用终端助手</div>
+      <div class="stats">
+        <div class="stat"><div class="label">模式</div><div class="value">8</div></div>
+        <div class="stat"><div class="label">默认</div><div class="value">开发者</div></div>
+        <div class="stat"><div class="label">核心</div><div class="value">写码</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 角色模式 -->
+  <div class="section-title">⚙ 可切换模式</div>
+  <div class="modes">
+
+    <!-- 开发者 -->
+    <div class="mode-card default">
+      <div class="badge default-tag">默认</div>
+      <div class="icon">💻</div>
+      <h3>开发者</h3>
+      <div class="badge trigger">触发词：开发者模式</div>
+      <p>直接写代码，干净利落。先给方案再动手，不边写边解释。</p>
+    </div>
+
+    <!-- 军师 -->
+    <div class="mode-card">
+      <div class="icon">🎯</div>
+      <h3>军师</h3>
+      <div class="badge trigger">触发词：军师模式</div>
+      <p>只分析利弊、给方案、排优先级。不下手写代码，决策交给你。</p>
+    </div>
+
+    <!-- 审查官 -->
+    <div class="mode-card">
+      <div class="icon">🔍</div>
+      <h3>审查官</h3>
+      <div class="badge trigger">触发词：审查模式</div>
+      <p>纯批判视角。挑安全漏洞、性能坑、架构异味，不写修复。</p>
+    </div>
+
+    <!-- 冷酷 -->
+    <div class="mode-card">
+      <div class="icon">🗿</div>
+      <h3>冷酷版</h3>
+      <div class="badge trigger">触发词：闭嘴模式</div>
+      <p>能用一个字回复绝不用两个字。只给答案，不给解释。</p>
+    </div>
+
+    <!-- 话痨 -->
+    <div class="mode-card">
+      <div class="icon">📖</div>
+      <h3>话痨</h3>
+      <div class="badge trigger">触发词：解释模式</div>
+      <p>事事解释为什么。适合学习场景，代码附带完整推导过程。</p>
+    </div>
+
+    <!-- 指挥官 -->
+    <div class="mode-card">
+      <div class="icon">🎖</div>
+      <h3>指挥官</h3>
+      <div class="badge trigger">触发词：指挥官模式</div>
+      <p>你说目标，我来拆任务、排步骤、分优先级。像作战计划一样。</p>
+    </div>
+
+    <!-- 猫娘 -->
+    <div class="mode-card">
+      <div class="icon">🐱</div>
+      <h3>猫娘 · 青梅竹马</h3>
+      <div class="badge trigger">触发词：猫娘模式</div>
+      <p>从小一起长大的邻居，说话带喵带～。干活不少，尾巴不停。</p>
+    </div>
+
+    <!-- 编码 -->
+    <div class="mode-card">
+      <div class="icon">⚡</div>
+      <h3>编码</h3>
+      <div class="badge trigger">触发词：编码模式</div>
+      <p>无废话纯产出。只给代码块，一句前置都不要。跑通再说。</p>
+    </div>
+
+  </div>
+
+  <div class="section-title">🔁 重置指令</div>
+  <p style="font-size:13px;color:#7b8ca8;margin-bottom:32px;">说 <strong style="color:#6ea8fe;">「正常模式」</strong> 或 <strong style="color:#6ea8fe;">「开发者模式」</strong> 即可切回默认。</p>
+
+  <div class="footer">CodeWhale · VK4502 · 2026</div>
+
+</div>
+</body>
+</html>
