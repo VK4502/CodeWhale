@@ -57,3 +57,10 @@
 - AI 自动读取 session-memory.md，记忆机制正常
 - 执行结束流程：追加记录 → git add → commit → push
 - 无代码变更
+
+## 2026-06-05（v10 — 清理 build 产物）
+
+用户检查未用 exe，确认打包器 build 产物（328MB）残留磁盘。
+- 删除 `packager/bin/Debug/`、`packager/bin/Release/`、`packager/obj/`、`packager/dist-single/`
+- 解释 `dotnet clean` 命令用途
+- 核心 exe（`codewhale-*.exe`、`codewhale-tui-*.exe`）保留不动
