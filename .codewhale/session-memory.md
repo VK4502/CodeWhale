@@ -64,3 +64,10 @@
 - 删除 `packager/bin/Debug/`、`packager/bin/Release/`、`packager/obj/`、`packager/dist-single/`
 - 解释 `dotnet clean` 命令用途
 - 核心 exe（`codewhale-*.exe`、`codewhale-tui-*.exe`）保留不动
+
+## 2026-06-05（v11 — 远程同步）
+
+从远程仓库 `git pull` 同步本地，Fast-forward 到 `c9b8bc3`。
+- 接收 5 个新提交（v6 → v10），含 packager 模块、VBS 部署方案、build 清理等
+- 新增 `packager/` 目录、`启动小蓝鲸写代码.vbs`、更新 `.gitignore`
+- 本地无冲突，同步成功
