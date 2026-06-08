@@ -71,3 +71,12 @@
 - 接收 5 个新提交（v6 → v10），含 packager 模块、VBS 部署方案、build 清理等
 - 新增 `packager/` 目录、`启动小蓝鲸写代码.vbs`、更新 `.gitignore`
 - 本地无冲突，同步成功
+
+## 2026-06-08（v12 — 记忆系统对比分析）
+
+用户就跨设备记忆同步设计和"无人格但响应准确"两个问题展开讨论。
+- 解释了 CodeWhale 采用文件驱动 + git 自动同步的设计思路（零运维、透明可审计、增量同步）
+- 分析了 DeepSeek V4 剥离人格层的原因：人格是噪声，推理才是信号
+- 应用户请求，读取并分析了 OpenHanako 的 hanako-memory 记忆系统（含 ishiki.md、pinned.md、memory/ 目录、同步机制等）
+- 产出对比分析文件 `hanako-memory-对比分析.md`（4.2KB），保存至 workspace 根目录供 VK 参考
+- 无代码变更
